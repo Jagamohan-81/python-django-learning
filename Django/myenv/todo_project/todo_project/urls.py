@@ -1,5 +1,5 @@
 """
-URL configuration for day1 project.
+URL configuration for todo_project project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -15,13 +15,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from day1 import views
-urlpatterns = [
-    path('', views.home),
-    path('admin-panel/', admin.site.urls),
-    path('about-us/', views.aboutUs),
-    path('contact-us/', views.contactUs ),
-    path('blog/<blogName>',views.blogDetails)
+from django.urls import path,include
 
+
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('todo.urls')),
 ]
